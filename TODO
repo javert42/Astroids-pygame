@@ -1,8 +1,6 @@
 TODO List
 
-- Add spacebar shooting.
 - Add simple impl of astroids (circles).
-- Add pause button ('p' freezes game with instruction to unfreeze).
 - Fix spaceShip physics with seperate x and y velocities.
 - Add throw-away version of collision detection for bullets and astroids.
 - Add sound effects for bullets and collisions.
