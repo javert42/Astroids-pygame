@@ -1,11 +1,10 @@
 TODO List
 
-- Add simple impl of astroids (circles).
-- Fix spaceShip physics with seperate x and y velocities.
-- Add throw-away version of collision detection for bullets and astroids.
 - Add sound effects for bullets and collisions.
 - Create some sort of HUD object(s) to display games status (lives, points, etc.).
 - Implement astroids as polygons.
 - Implement collision detection for new astroids.
 - Implement collision detection for spaceShip.
 - Implement astroid splintering.
+- Decouple objects from pygame.
+- 
