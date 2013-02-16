@@ -10,11 +10,11 @@ class AstroidGame:
     def __init__(self):
         pygame.init()
         self.load_sounds()
-        self.window_size = 800,800
+        self.window_size = 640,480
         self.fps_limit = 60 
         self.screen = pygame.display.set_mode(self.window_size)
         self.game_clock = pygame.time.Clock()
-        self.ship = spaceShip.SpaceShip(300,500,(0,0,255))
+        self.ship = spaceShip.SpaceShip(45,45,(255,255,255))
         self.keydown = None
         self.bullets = []
         self.astroids = []
@@ -42,7 +42,7 @@ class AstroidGame:
             x = r.randint(0,self.screen.get_width())
             y = self.screen.get_height() * (side / 2)
             y = y + (side - 2) * 10
-        min_dir = 90*side
+        min_dir = 90 * side
         max_dir = min_dir + 180
         dir = r.randint(min_dir,max_dir)
         mult = r.gauss(.2, .05)

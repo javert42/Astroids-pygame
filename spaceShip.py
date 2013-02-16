@@ -60,11 +60,11 @@ class SpaceShip:
         self.direction = (self.direction + rad) % (2*math.pi)        
         new_points = []
         for point in self.points:
-            x = point[0] - self.pos[0]
-            y = point[1] - self.pos[1]
+            x_old = point[0] - self.pos[0]
+            y_old = point[1] - self.pos[1]
             
-            x = x * math.cos(-rad) + y * math.sin(-rad)
-            y = x * (-1* math.sin(-rad)) + y * math.cos(-rad)
+            x = x_old * math.cos(-rad) + y_old * math.sin(-rad)
+            y = x_old * (-1* math.sin(-rad)) + y_old * math.cos(-rad)
 
             x = x + self.pos[0]
             y = y + self.pos[1]
