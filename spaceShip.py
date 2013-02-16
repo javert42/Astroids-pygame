@@ -2,17 +2,24 @@ import pygame, math
 
 class SpaceShip:
     def __init__(self, x=0, y=0, color=(0,0,255)):
-        self.height = 50
-        self.width = 30
+        self.height = 20
+        self.width = 12
         self.velocity = (0,0)
         self.direction = 0
         if x < self.width/2:
             x = self.width/2
         self.points = [(x,y),
                        (x-(self.width/2),y+self.height),
-                       (x+(self.width/2),y+self.height)]
+                       (x+(self.width/2),y+self.height),
+                       (x-(self.width/3),y+(self.height*.75)),
+                       (x+(self.width/3),y+(self.height*.75)),
+                       (x-(self.width/3)+1,y+(self.height*.75)),
+                       (x,y+self.height),
+                       (x+(self.width/3)-1,y+(self.height*.75)),
+                       (x,y+self.height),]
         self.pos = (x, y+(self.height/2))
         self.color = color
+        self.thrust = False
 
     def get_width(self):
         return self.width
@@ -30,11 +37,20 @@ class SpaceShip:
         return self.velocity
 
     def draw(self, screen):
-        pygame.draw.polygon(screen, self.color, self.points, 1)
+        #pygame.draw.polygon(screen, self.color, self.points, 1)
+        pygame.draw.aaline(screen, self.color, self.points[0], self.points[1])
+        pygame.draw.aaline(screen, self.color, self.points[0], self.points[2])
+        pygame.draw.aaline(screen, self.color, self.points[3], self.points[4])
+        if (self.thrust):
+            pygame.draw.aaline(screen, self.color, self.points[5], self.points[6])
+            pygame.draw.aaline(screen, self.color, self.points[7], self.points[8])
+            self.thrust = False
+
 
     def accelerate(self, val):
         self.velocity = (self.velocity[0] + val * math.sin(self.direction),
                          self.velocity[1] + val * -math.cos(self.direction))
+        self.thrust = True
 
     def advance(self, screen, dtime):
         xd = self.velocity[0] * dtime

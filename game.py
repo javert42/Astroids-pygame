@@ -61,6 +61,8 @@ class AstroidGame:
     def run(self):
         while True:
             for event in pygame.event.get():
+                if event.type == KEYDOWN:
+                    self.debug.add("Key: " + str(event.key))
                 if event.type == pygame.QUIT:
                     sys.exit()
                 elif event.type == KEYDOWN and event.key == K_ESCAPE:

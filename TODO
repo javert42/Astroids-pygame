@@ -1,6 +1,5 @@
 TODO List
-
-- Fix spaceship model
+- Rewrite input handler
 - Fix movement logic.
 - Add flying saucer model (straight flyer)
 - Add flying saucer movement

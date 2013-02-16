@@ -10,7 +10,7 @@ class AstroidGame:
     def __init__(self):
         pygame.init()
         self.load_sounds()
-        self.window_size = 360,480
+        self.window_size = 640,480
         self.fps_limit = 60 
         self.screen = pygame.display.set_mode(self.window_size)
         self.game_clock = pygame.time.Clock()
@@ -61,6 +61,8 @@ class AstroidGame:
     def run(self):
         while True:
             for event in pygame.event.get():
+                if event.type == KEYDOWN:
+                    self.debug.add("Key: " + str(event.key))
                 if event.type == pygame.QUIT:
                     sys.exit()
                 elif event.type == KEYDOWN and event.key == K_ESCAPE:
